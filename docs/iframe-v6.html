@@ -54,7 +54,7 @@
         });
 
         document.querySelector("paypal-button").addEventListener("click", () => {
-            paypalCheckoutSession.start({ paymentFlow: "auto" }, createOrderPromise());
+            paypalCheckoutSession.start({ paymentFlow: "payment-handler" }, createOrderPromise());
         });
 
         document.querySelector("#render-your-own-paypal-button").addEventListener("click", () => {
