@@ -48,18 +48,18 @@
             clientToken
         });
 
-        const paypalCheckoutSession = sdkInstance.createPayPalCheckout({
+        const paypalOneTimePaymentSession = sdkInstance.createPayPalOneTimePaymentSession({
             //.TODO: add onApprove logic
             onApprove: () => {
             },
         });
 
         document.querySelector("paypal-button").addEventListener("click", () => {
-            paypalCheckoutSession.start({ paymentFlow: "popup", fullPageOverlay: { enabled: false } }, createOrderPromise());
+            paypalOneTimePaymentSession.start({ paymentFlow: "popup", fullPageOverlay: { enabled: false } }, createOrderPromise());
         });
 
         document.querySelector("#render-your-own-paypal-button").addEventListener("click", () => {
-            paypalCheckoutSession.start({ paymentFlow: "popup", fullPageOverlay: { enabled: false } }, createOrderPromise());
+            paypalOneTimePaymentSession.start({ paymentFlow: "popup", fullPageOverlay: { enabled: false } }, createOrderPromise());
         });
       }
 

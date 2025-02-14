@@ -33,7 +33,7 @@
             clientToken
         });
 
-        const paypalCheckoutSession = sdkInstance.createPayPalCheckout({
+        const paypalOneTimePaymentSession = sdkInstance.createPayPalOneTimePaymentSession({
             //.TODO: add onApprove logic
             onApprove: () => {}
         });
@@ -50,7 +50,7 @@
             if (event.data.eventName === "paypal-button-click") {
                 
                 try {
-                  await paypalCheckoutSession.start({ paymentFlow: "auto" }, createOrderPromise());
+                  await paypalOneTimePaymentSession.start({ paymentFlow: "auto" }, createOrderPromise());
                 } catch(error) {
                   console.error({
                     label: "popup flow failed",

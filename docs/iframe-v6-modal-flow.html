@@ -48,7 +48,7 @@
             clientToken
         });
 
-        const paypalCheckoutSession = sdkInstance.createPayPalCheckout({
+        const paypalOneTimePaymentSession = sdkInstance.createPayPalOneTimePaymentSession({
             //.TODO: add onApprove logic
             onApprove: () => {
                 sendPostMessageToParent({ eventName: "modal-flow-closed" });
@@ -59,12 +59,12 @@
         });
 
         document.querySelector("paypal-button").addEventListener("click", () => {
-            paypalCheckoutSession.start({ paymentFlow: "modal" }, createOrderPromise());
+            paypalOneTimePaymentSession.start({ paymentFlow: "modal" }, createOrderPromise());
             sendPostMessageToParent({ eventName: "modal-flow-opened" });
         });
 
         document.querySelector("#render-your-own-paypal-button").addEventListener("click", () => {
-            paypalCheckoutSession.start({ paymentFlow: "modal" }, createOrderPromise());
+            paypalOneTimePaymentSession.start({ paymentFlow: "modal" }, createOrderPromise());
             sendPostMessageToParent({ eventName: "modal-flow-opened" });
 
         });
